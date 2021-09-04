@@ -4,8 +4,9 @@ import android.app.Application
 import com.ilyasov.gifs_tinkoff_test_task.presentation.di.AppComponent
 import com.ilyasov.gifs_tinkoff_test_task.presentation.di.AppModule
 import com.ilyasov.gifs_tinkoff_test_task.presentation.di.DaggerAppComponent
+import com.ilyasov.gifs_tinkoff_test_task.presentation.di.RemoteModule
 
-class App: Application() {
+class App : Application() {
 
     companion object {
         lateinit var appComponent: AppComponent
@@ -17,6 +18,10 @@ class App: Application() {
     }
 
     private fun initializeDagger() {
-        appComponent = DaggerAppComponent.builder().appModule(AppModule(this)).build()
+        appComponent = DaggerAppComponent
+            .builder()
+            .appModule(AppModule(this))
+            .remoteModule(RemoteModule())
+            .build()
     }
 }
