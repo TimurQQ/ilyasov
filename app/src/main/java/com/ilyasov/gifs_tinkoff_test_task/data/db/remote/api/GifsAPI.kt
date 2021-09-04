@@ -1,5 +1,6 @@
 package com.ilyasov.gifs_tinkoff_test_task.data.db.remote.api
 
+import com.ilyasov.gifs_tinkoff_test_task.domain.entity.GifEntity
 import com.ilyasov.gifs_tinkoff_test_task.domain.entity.GifResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -13,6 +14,7 @@ interface GifsAPI : APIInterface {
         const val SET_JSON_PARAMETER = "json"
         const val SET_SECTION = "section"
         const val SET_PAGE = "page"
+        const val GET_RANDOM_GIF = "/random"
     }
 
     @GET(GET_GIFS)
@@ -21,4 +23,9 @@ interface GifsAPI : APIInterface {
         @Path(SET_PAGE) page: Long,
         @Query(SET_JSON_PARAMETER) json: Boolean
     ): Response<GifResponse>
+
+    @GET(GET_RANDOM_GIF)
+    override suspend fun getRandomGif(
+        @Query(SET_JSON_PARAMETER) json: Boolean
+    ): Response<GifEntity>
 }

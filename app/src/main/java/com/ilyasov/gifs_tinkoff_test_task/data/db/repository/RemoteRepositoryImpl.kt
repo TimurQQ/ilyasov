@@ -1,6 +1,7 @@
 package com.ilyasov.gifs_tinkoff_test_task.data.db.repository
 
 import com.ilyasov.gifs_tinkoff_test_task.data.db.remote.api.APIInterface
+import com.ilyasov.gifs_tinkoff_test_task.domain.entity.GifEntity
 import com.ilyasov.gifs_tinkoff_test_task.domain.entity.GifResponse
 import retrofit2.Response
 import javax.inject.Inject
@@ -13,4 +14,8 @@ class RemoteRepositoryImpl @Inject constructor(
         page: Long,
         json: Boolean
     ): Response<GifResponse> = gifsAPI.getGifs(section, page)
+
+    override suspend fun getRandomGif(
+        json: Boolean
+    ): Response<GifEntity> = gifsAPI.getRandomGif()
 }
