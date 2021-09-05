@@ -20,11 +20,6 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         btnBack.setOnClickListener { onClickBack() }
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.getRandomGif {}
-    }
-
     private fun setupObserver() {
         viewModel.currentGifImageLiveData.observe(viewLifecycleOwner) { gifEntity ->
             ivCurrentGif.loadGifFromUrl(gifEntity.gifURL)
@@ -38,6 +33,10 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         }
         viewModel.backButtonStateLiveData.observe(viewLifecycleOwner) { visibility ->
             btnBack.isVisible(visibility)
+        }
+        viewModel.networkConnectionUseCase.observe(viewLifecycleOwner) { isConnected ->
+            if (isConnected && tvGifDescription.text == "") viewModel.getRandomGif {}
+            if (!isConnected) showToast("Connection lost")
         }
     }
 

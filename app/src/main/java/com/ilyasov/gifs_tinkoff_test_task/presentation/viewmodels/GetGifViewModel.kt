@@ -18,7 +18,7 @@ import kotlin.collections.ArrayList
 
 class GetGifViewModel @Inject constructor(
     private val getRandomGifUseCase: GetRandomGifUseCase,
-    private val networkConnectionUseCase: NetworkConnectionUseCase
+    val networkConnectionUseCase: NetworkConnectionUseCase
 ) : ViewModel() {
     val loadingMutableLiveData: MutableLiveData<Boolean> = MutableLiveData()
     val errorStateLiveData: MutableLiveData<String> = MutableLiveData()
@@ -52,6 +52,7 @@ class GetGifViewModel @Inject constructor(
             getRandomGif { backButtonStateLiveData.postValue(true) }
         } else {
             currentGifImageLiveData.postValue(cashedList[++currentIndex])
+            backButtonStateLiveData.postValue(true)
         }
     }
 

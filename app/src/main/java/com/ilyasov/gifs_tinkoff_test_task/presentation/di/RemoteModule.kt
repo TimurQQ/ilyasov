@@ -1,4 +1,4 @@
-package com.ilyasov.gifs_tinkoff_test_task.presentation.di;
+package com.ilyasov.gifs_tinkoff_test_task.presentation.di
 
 import android.app.Application
 import android.content.Context

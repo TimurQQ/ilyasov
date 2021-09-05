@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
-    <list size="1">
-      <item index="0" class="java.lang.String" itemvalue="dagger.Binds" />
+    <list size="18">
+      <item index="0" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="1" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="2" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="3" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="4" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="5" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="6" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="7" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="8" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="9" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="10" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="11" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="12" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="13" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="14" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="15" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="16" class="java.lang.String" itemvalue="com.google.gson.annotations.SerializedName" />
+      <item index="17" class="java.lang.String" itemvalue="dagger.Binds" />
     </list>
   </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">

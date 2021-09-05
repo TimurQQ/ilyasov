@@ -21,14 +21,6 @@ fun ImageView.loadGifFromUrl(url: String?) {
 fun View.isVisible(visibility: Boolean) =
     if (visibility) this.visibility = View.VISIBLE else this.visibility = View.GONE
 
-fun View.makeVisible() {
-    this.visibility = View.VISIBLE
-}
-
-fun View.makeInvisible() {
-    this.visibility = View.GONE
-}
-
 fun Fragment.showToast(message: String) {
     Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
 }
