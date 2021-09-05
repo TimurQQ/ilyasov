@@ -1,5 +1,8 @@
 package com.ilyasov.gifs_tinkoff_test_task.presentation.di;
 
+import android.app.Application
+import android.content.Context
+import android.net.ConnectivityManager
 import com.ilyasov.gifs_tinkoff_test_task.data.db.remote.api.APIInterface
 import com.ilyasov.gifs_tinkoff_test_task.data.db.remote.api.GifsAPI
 import com.ilyasov.gifs_tinkoff_test_task.data.db.repository.RemoteRepository
@@ -42,4 +45,9 @@ class RemoteModule {
     @Provides
     fun providesRemoteRepository(service: APIInterface): RemoteRepository =
         RemoteRepositoryImpl(service)
+
+    @Singleton
+    @Provides
+    fun provideConnectivityManager(application: Application): ConnectivityManager =
+        application.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
 }

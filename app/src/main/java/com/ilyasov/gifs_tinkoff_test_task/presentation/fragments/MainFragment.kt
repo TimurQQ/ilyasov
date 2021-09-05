@@ -6,7 +6,7 @@ import com.ilyasov.gifs_tinkoff_test_task.R
 import com.ilyasov.gifs_tinkoff_test_task.presentation.fragments.base.BaseFragment
 import com.ilyasov.gifs_tinkoff_test_task.presentation.viewmodels.GetGifViewModel
 import com.ilyasov.gifs_tinkoff_test_task.util.isVisible
-import com.ilyasov.gifs_tinkoff_test_task.util.loadFromUrl
+import com.ilyasov.gifs_tinkoff_test_task.util.loadGifFromUrl
 import com.ilyasov.gifs_tinkoff_test_task.util.showToast
 import kotlinx.android.synthetic.main.fragment_main.*
 
@@ -16,16 +16,18 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupObserver()
+        btnNext.setOnClickListener { onClickNext() }
+        btnBack.setOnClickListener { onClickBack() }
     }
 
     override fun onResume() {
         super.onResume()
-        viewModel.getRandomGif()
+        viewModel.getRandomGif {}
     }
 
     private fun setupObserver() {
         viewModel.currentGifImageLiveData.observe(viewLifecycleOwner) { gifEntity ->
-            ivCurrentGif.loadFromUrl(gifEntity.previewURL)
+            ivCurrentGif.loadGifFromUrl(gifEntity.gifURL)
             tvGifDescription.text = gifEntity.description
         }
         viewModel.errorStateLiveData.observe(viewLifecycleOwner) { error ->
@@ -34,5 +36,16 @@ class MainFragment : BaseFragment(R.layout.fragment_main) {
         viewModel.loadingMutableLiveData.observe(viewLifecycleOwner) { visibility ->
             progressBar.isVisible(visibility)
         }
+        viewModel.backButtonStateLiveData.observe(viewLifecycleOwner) { visibility ->
+            btnBack.isVisible(visibility)
+        }
+    }
+
+    private fun onClickNext() {
+        viewModel.getNextGif()
+    }
+
+    private fun onClickBack() {
+        viewModel.getPreviousGif()
     }
 }

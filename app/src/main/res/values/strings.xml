@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">GifsTinkoffTestTask</string>
     <string name="fragment_main_title">Developers Life</string>
+    <string name="image_button_desc">Image button icon</string>
 </resources>
